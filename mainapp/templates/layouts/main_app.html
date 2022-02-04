@@ -1,0 +1,101 @@
+{% load static %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% get_setting "APP_SHORT_NAME" %} | {{ page_title }}</title>
+
+    <link rel="shortcut icon" href="{%  static 'mainapp/favicon.ico' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet"
+        href="{% static 'mainapp/lib/adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css' %}">
+    {% block link_css %}{% endblock link_css %}
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/css/adminlte.min.css' %}">
+    <!-- App style -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css' %}">
+</head>
+
+<body class="hold-transition sidebar-mini layout-footer-fixed layout-navbar-fixed layout-fixed">
+    <div class="wrapper">
+
+        {% include 'layouts/includes/navbar.html' %}
+
+        {% include 'layouts/includes/main_sidebar.html' %}
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">{{ page_title }}</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                {% block breadcrumb %}{% endblock breadcrumb %}
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    {% block content %}{% endblock content %}
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        {% include 'layouts/includes/footer.html' %}
+
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- SweetAlert2 -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/sweetalert2/sweetalert2.min.js' %}"></script>
+    {% block scripts_footer %}{% endblock scripts_footer %}
+    <!-- AdminLTE App -->
+    <script src="{% static 'mainapp/lib/adminlte/js/adminlte.min.js' %}"></script>
+
+    {% if messages %}
+    <script>
+        {%for message in messages %}
+        Swal.fire({
+            position: 'top-end',
+            icon: '{{ message.tags }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 2000
+        }) 
+        {% endfor %}
+    </script>
+    {% endif %}
+
+</body>
+
+</html>

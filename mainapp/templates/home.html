@@ -1,0 +1,12 @@
+{% extends 'layouts/main_app.html'%}
+
+{% load custom_tags %}
+{% load i18n %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">{% trans "Home" %}</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+<p>{% get_setting "APP_SHORT_NAME" %}, base Django project with AdminLTE template</p>
+{% endblock content %}

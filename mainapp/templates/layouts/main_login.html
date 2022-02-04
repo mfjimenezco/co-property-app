@@ -1,0 +1,74 @@
+{% load static %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% get_setting "APP_SHORT_NAME" %} | {{ page_title }}</title>
+
+    <link rel="shortcut icon" href="{%  static 'mainapp/favicon.ico' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet"
+        href="{% static 'mainapp/lib/adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css' %}">
+    {% block link_css %}{% endblock link_css %}
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'mainapp/lib/adminlte/css/adminlte.min.css' %}">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'mainapp/img/logo_app.svg' %}" height="60">
+                <strong class="">{% get_setting "APP_NAME" %}</strong> <small class="lead text-muted">{% get_setting "APP_SUB_NAME" %}</small>
+            </a>
+        </div>
+        <div class="card card-outline card-info">
+            {% block content %}{% endblock content %}
+        </div>
+        <!-- /.card -->
+        <p class="text-center"><small class="text-muted">By {% get_setting "APP_COMPANY" %}</small></p>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- SweetAlert2 -->
+    <script src="{% static 'mainapp/lib/adminlte/plugins/sweetalert2/sweetalert2.min.js' %}"></script>
+    {% block scripts_footer %}{% endblock scripts_footer %}
+    <!-- AdminLTE App -->
+    <script src="{% static 'mainapp/lib/adminlte/js/adminlte.min.js' %}"></script>
+
+    {% if messages %}
+    <script>
+        {%for message in messages %}
+        Swal.fire({
+            position: 'top-end',
+            icon: '{{ message.tags }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 5000
+        }) 
+        {% endfor %}
+    </script>
+    {% endif %}
+
+</body>
+
+</html>

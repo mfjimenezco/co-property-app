@@ -1,0 +1,66 @@
+{% load static %}
+{% load i18n %}
+{% load custom_tags %}
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar main-sidebar-custom sidebar-light-info elevation-1">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+        <img src="{% static 'mainapp/img/logo_app.svg' %}" class="brand-image">
+        <span class="brand-text font-weight-light">
+            <strong>{% get_setting "APP_NAME" %}</strong> <small
+                class="lead text-muted">{% get_setting "APP_SUB_NAME" %}</small>
+        </span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item {% if request.resolver_match.view_name|first in 'accounts' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-user-circle"></i>
+                        <p>
+                            {% trans "Account" %}
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'accounts:profile' %}"
+                                class="nav-link {% if request.resolver_match.view_name  == 'accounts:profile' %}active{% endif %}">
+                                <i class="fas fa-arrow-right nav-icon"></i>
+                                <p>{% trans "Profile" %}</p>
+                            </a>
+                            <a href="{% url 'accounts:change_password' %}"
+                                class="nav-link {% if request.resolver_match.view_name  == 'accounts:change_password' %}active{% endif %}">
+                                <i class="fas fa-arrow-right nav-icon"></i>
+                                <p>{% trans "Change password" %}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    <div class="sidebar-custom">
+        <form action="{% url 'set_language' %}" id="language_form" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}" />
+            <div style="display: flex">
+                <select class="form-control" name="language" onchange="form.submit()">
+                    <option value="">{% trans "Choose language" %}</option>
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <!-- /.sidebar-custom -->
+</aside>

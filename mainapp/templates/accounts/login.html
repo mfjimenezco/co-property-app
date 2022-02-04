@@ -1,0 +1,54 @@
+{% extends 'layouts/main_login.html'%}
+
+{% load i18n %}
+
+{% block content %}
+<div class="card-header">
+    <h3 class="card-title float-none text-center">
+        {% trans "Enter your information to sign in" %}
+    </h3>
+</div>
+<div class="card-body login-card-body">
+    {% if error%}
+    <p class="text-danger text-center">
+        <strong>{% trans "Error" %}: </strong>{{ error }}
+    </p>
+    {% endif %}
+    <form action="{% url 'accounts:login' %}" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" name="username" class="form-control" placeholder="{% trans "Username" %}" required
+                autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user "></span>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="password" class="form-control " placeholder="{% trans "Password" %}" required>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-lock "></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="pt-2">
+                    <a href="{% url 'accounts:password_reset' %}">{% trans "I forgot my password" %}</a>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+                <button type="submit" class="btn btn-info btn-block">{% trans "Sign in" %}</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+</div>
+<!-- /.card-body -->
+<div class="card-footer">
+
+</div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% load custom_tags %}
+{% load i18n %}
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-block">
+        {% get_setting "APP_LONG_NAME" %} <small>{% get_setting "APP_VERSION" %}</small>
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; {% now 'Y' %} {% get_setting "APP_COMPANY" %}.</strong> {% trans "All rights reserved" %}. 
+</footer>

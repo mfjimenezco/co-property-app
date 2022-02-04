@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Manuel Felipe Jiménez Cortés <mfjimenezco@gmail.com>, 2022.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.0\n"
+"Report-Msgid-Bugs-To: Manuel Felipe Jiménez Cortés <mfjimenezco@gmail.com>\n"
+"POT-Creation-Date: 2022-02-03 19:20-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Manuel Felipe Jiménez Cortés <mfjimenezco@gmail.com>\n"
+"Language: Español\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\accounts\forms.py:20 .\accounts\forms.py:26
+msgid "First Name"
+msgstr "Nombre"
+
+#: .\accounts\forms.py:32 .\accounts\forms.py:38
+msgid "Last Name"
+msgstr "Apellido"
+
+#: .\accounts\forms.py:44 .\accounts\forms.py:52
+#: .\templates\accounts\password_reset.html:22
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: .\accounts\forms.py:46
+msgid ""
+"Please enter a valid email, this is used in case you forgot your password."
+msgstr ""
+"Ingrese un correo electrónico válido, esto se usa en caso de que haya "
+"olvidado su contraseña."
+
+#: .\accounts\forms.py:70 .\accounts\forms.py:73
+msgid "Old Password"
+msgstr "Contraseña Anterior"
+
+#: .\accounts\forms.py:77 .\accounts\forms.py:80
+#: .\templates\accounts\password_reset_confirm.html:23
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+#: .\accounts\forms.py:84 .\accounts\forms.py:87
+#: .\templates\accounts\password_reset_confirm.html:33
+msgid "Confirmation New Password"
+msgstr "Confirmación Nueva Contraseña"
+
+#: .\accounts\middlewares.py:33
+msgid "Please complete your profile before using the app"
+msgstr "Complete su perfil antes de usar la aplicación"
+
+#: .\accounts\views.py:39
+msgid "Invalid username and password"
+msgstr "Nombre de usuario y contraseña inválidos"
+
+#: .\accounts\views.py:56
+msgid ""
+"Instructions have been sent via email to reset your password, if an account "
+"exists with the email you entered, you should receive them shortly."
+msgstr ""
+"Se han enviado instrucciones por correo electrónico para restablecer su "
+"contraseña, si existe una cuenta con el correo electrónico que ingresó, "
+"debería recibirlas en breve."
+
+#: .\accounts\views.py:60 .\accounts\views.py:68 .\accounts\views.py:75
+msgid "Password recovery"
+msgstr "Recuperación de contraseña"
+
+#: .\accounts\views.py:95
+msgid "Profile updated successfully"
+msgstr "Perfil actualizado con éxito"
+
+#: .\accounts\views.py:101
+msgid "It was not possible to update your profile"
+msgstr "No fue posible actualizar tu perfil"
+
+#: .\accounts\views.py:108
+msgid "User profile"
+msgstr "Perfil del usuario"
+
+#: .\accounts\views.py:124
+msgid "Your password was updated successfully"
+msgstr "Su contraseña fue actualizada con éxito"
+
+#: .\accounts\views.py:130
+msgid "It was not possible to update your password"
+msgstr "No fue posible actualizar su contraseña"
+
+#: .\accounts\views.py:137 .\templates\accounts\change_password.html:8
+#: .\templates\layouts\includes\main_sidebar.html:41
+msgid "Change password"
+msgstr "Cambia la contraseña"
+
+#: .\mainapp\views.py:14 .\templates\accounts\change_password.html:6
+#: .\templates\accounts\profile.html:6 .\templates\home.html:7
+#: .\templates\layouts\includes\navbar.html:12
+msgid "Home"
+msgstr "Inicio"
+
+#: .\templates\accounts\change_password.html:7
+#: .\templates\accounts\profile.html:7
+#: .\templates\layouts\includes\main_sidebar.html:27
+msgid "Account"
+msgstr "Cuenta"
+
+#: .\templates\accounts\change_password.html:16
+#: .\templates\accounts\login.html:14 .\templates\accounts\profile.html:17
+msgid "Error"
+msgstr "Error"
+
+#: .\templates\accounts\change_password.html:42
+#: .\templates\accounts\profile.html:43
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\templates\accounts\change_password.html:43
+#: .\templates\accounts\password_reset_confirm.html:51
+#: .\templates\accounts\profile.html:44
+msgid "Update"
+msgstr "Actualizar"
+
+#: .\templates\accounts\login.html:8
+msgid "Enter your information to sign in"
+msgstr "Ingresa tus datos para iniciar sesión"
+
+#: .\templates\accounts\login.html:20 .\templates\layouts\main_profile.html:24
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: .\templates\accounts\login.html:29 .\templates\layouts\main_profile.html:61
+msgid "Password"
+msgstr "Contraseña"
+
+#: .\templates\accounts\login.html:39
+#: .\templates\accounts\password_reset_confirm.html:72
+msgid "I forgot my password"
+msgstr "Olvidé mi contraseña"
+
+#: .\templates\accounts\login.html:44
+#: .\templates\accounts\password_reset_complete.html:12
+msgid "Sign in"
+msgstr "Ingresar"
+
+#: .\templates\accounts\password_reset.html:8
+msgid "Enter your email to recover your password"
+msgstr "Introduce tu email para recuperar tu contraseña"
+
+#: .\templates\accounts\password_reset.html:33
+#: .\templates\accounts\password_reset_confirm.html:44
+msgid "Back to Sign in"
+msgstr "Volver a Iniciar sesión"
+
+#: .\templates\accounts\password_reset.html:40
+msgid "Send"
+msgstr "Enviar"
+
+#: .\templates\accounts\password_reset_complete.html:8
+msgid "Your password has been reset."
+msgstr "Tu contraseña ha sido restablecida."
+
+#: .\templates\accounts\password_reset_confirm.html:9
+msgid "Enter your new password"
+msgstr "Introduzca su nueva contraseña"
+
+#: .\templates\accounts\password_reset_confirm.html:65
+msgid "Password reset link was invalid, possibly because it was already used."
+msgstr ""
+"El enlace de restablecimiento de contraseña no es válido, posiblemente "
+"porque ya se usó."
+
+#: .\templates\accounts\password_reset_confirm.html:68
+msgid "Request a new password reset."
+msgstr "Solicitar un nuevo restablecimiento de contraseña."
+
+#: .\templates\accounts\password_reset_email.html:9
+msgid ""
+"To start the process of resetting your account password, click on the "
+"following link:"
+msgstr ""
+"Para iniciar el proceso de restablecimiento de la contraseña de su cuenta, "
+"haga clic en el siguiente enlace:"
+
+#: .\templates\accounts\password_reset_email.html:13
+msgid ""
+"If clicking the link above doesn't work, copy and paste the URL into a new "
+"browser window."
+msgstr ""
+"Si hacer clic en el enlace anterior no funciona, copie y pegue la URL en una "
+"nueva ventana del navegador."
+
+#: .\templates\accounts\password_reset_email.html:15
+msgid "Regards"
+msgstr "Saludos"
+
+#: .\templates\accounts\profile.html:8
+#: .\templates\layouts\includes\main_sidebar.html:36
+#, fuzzy
+#| msgid "User Profile"
+msgid "Profile"
+msgstr "Perfil del usuario"
+
+#: .\templates\layouts\includes\footer.html:11
+msgid "All rights reserved"
+msgstr "Reservados todos los derechos"
+
+#: .\templates\layouts\includes\main_sidebar.html:58
+msgid "Choose language"
+msgstr "Elegir idioma"
+
+#: .\templates\layouts\includes\navbar.html:16
+msgid "Admin"
+msgstr "Admin"
+
+#: .\templates\layouts\includes\navbar.html:44
+msgid "User Profile"
+msgstr "Perfil del usuario"
+
+#: .\templates\layouts\includes\navbar.html:46
+msgid "Sign out"
+msgstr "Cerrar sesión"
+
+#: .\templates\layouts\main_profile.html:30
+msgid "Joined"
+msgstr "Unido"
+
+#: .\templates\layouts\main_profile.html:36
+msgid "Last connection"
+msgstr "Última conexión"
+
+#: .\templates\layouts\main_profile.html:55
+msgid "Basic information"
+msgstr "Información básica"
+
+#, fuzzy
+#~| msgid "Account"
+#~ msgid "Accounts"
+#~ msgstr "Cuenta"
