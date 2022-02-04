@@ -6,9 +6,18 @@ from .base import env
 # App info
 APP_ENV = 'DEV'
 
-# Base
+# Security
+SECRET_KEY = 'django-insecure-development-key'
+ALLOWED_HOSTS = ["*"]
 DEBUG = True
 
-# Security
-SECRET_KEY = env('DJANGO_D_APP_SECRET_KEY', default='django-insecure-development-key')
-ALLOWED_HOSTS = ["*"]
+# Admin
+ADMIN_URL = 'admin/'
+
+# Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}

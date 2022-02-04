@@ -19,11 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 env = environ.Env()
 
-DEBUG = env.bool('DJANGO_D_APP_DEBUG', False)
+# Security
+DEBUG = env.bool('DJANGO_D_APP_DEBUG', default=False)
 
 # Internationalization
 LANGUAGE_CODE = 'en'
-TIME_ZONE = 'UTC'
+TIME_ZONE = env.str('DJANGO_D_APP_TIME_ZONE', default='UTC')
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -36,14 +37,6 @@ LANGUAGES = (
 LOCALE_PATHS = (
     BASE_DIR / 'locale',
 )
-
-# Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 WSGI_APPLICATION = 'mainapp.wsgi.application'
 
@@ -91,6 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Middlewares
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -104,8 +98,10 @@ MIDDLEWARE = [
     'accounts.middlewares.ProfileCompleteMiddleware',
 ]
 
+# URLs
 ROOT_URLCONF = 'mainapp.urls'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -134,19 +130,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 # Default primary key field type
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Admin
-ADMIN_URL = 'admin/'
 
 # Login
 LOGIN_URL = '/accounts/login'
 
 # Email configs
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = str(env('DJANGO_D_APP_EMAIL_USER',  default='default@app.com'))
-EMAIL_HOST_PASSWORD = str(env('DJANGO_D_APP_EMAIL_PASSWORD',  default='passwordEMAIL'))
+EMAIL_BACKEND = env.str('DJANGO_D_APP_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = env.str('DJANGO_D_APP_EMAIL_HOST', default='smtp.server.com')
+EMAIL_USE_TLS = env.bool('DJANGO_D_APP_EMAIL_USE_TLS', default=True)
+EMAIL_PORT = env.int('DJANGO_D_APP_EMAIL_PORT', default=587)
+EMAIL_HOST_USER = str(env('DJANGO_D_APP_EMAIL_USER', default='default@app.com'))
+EMAIL_HOST_PASSWORD = str(env('DJANGO_D_APP_EMAIL_PASSWORD', default='passwordEMAIL'))
