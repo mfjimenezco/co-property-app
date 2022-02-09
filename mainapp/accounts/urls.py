@@ -30,4 +30,7 @@ urlpatterns = [
     path(route='password-reset-complete/',
          view=views.PasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
+    path(route='user-request/',
+         view=views.CreateUserRequestView.as_view(),
+         name='user_request'),
 ]

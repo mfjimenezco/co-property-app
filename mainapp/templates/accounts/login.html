@@ -48,7 +48,9 @@
     </form>
 </div>
 <!-- /.card-body -->
-<div class="card-footer">
-
+<div class="card-footer text-center">
+    <a class="btn btn-outline-secondary btn-sm btn-block" role="button" aria-pressed="true" href="{% url 'accounts:user_request' %}">
+        {% trans "Request a user" %}
+    </a>
 </div>
 {% endblock content %}

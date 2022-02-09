@@ -16,10 +16,12 @@ from django.contrib.auth.views import (PasswordResetView,
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView
 
 # Forms
-from .forms import UpdateUserForm
-from .forms import PasswordChangeForm
+from .forms import (UpdateUserForm,
+                    PasswordChangeForm,
+                    UserRequestForm)
 
 
 def login_view(request):
@@ -138,3 +140,14 @@ def change_password_view(request):
             'pass_form': pass_form,
         }
     )
+
+
+class CreateUserRequestView(SuccessMessageMixin, CreateView):
+    """Create a new user request."""
+    
+    template_name = 'accounts/user_request.html'
+    form_class = UserRequestForm
+    success_url = reverse_lazy('accounts:login')
+    success_message = _('You have requested a user. If it is approved, you will'
+                        ' receive an email with your temporary password.')
+    extra_context = {'page_title': _('User request')}

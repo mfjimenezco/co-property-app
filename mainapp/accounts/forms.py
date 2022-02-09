@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Models
 from django.contrib.auth.models import User
+from .models import UserRequest
 
 
 class UpdateUserForm(forms.ModelForm):
@@ -88,3 +89,38 @@ class PasswordChangeForm(PasswordChangeForm):
                 "class": "form-control"
             }
         )
+
+class UserRequestForm(forms.ModelForm):
+    """User Request form."""
+    
+    username = forms.CharField(
+        label=_('Username'),
+        help_text=_(
+            'Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        min_length=4,
+        max_length=150,
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': _('Username'),
+                'class': 'form-control',
+            }
+        )
+    )
+    email = forms.CharField(
+        label=_('Email'),
+        help_text=_(
+            'Enter a valid email, this is used for send your default password.'),
+        min_length=6,
+        max_length=70,
+        required=True,
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': _('Email'),
+                'class': 'form-control',
+            }
+        )
+    )
+    class Meta:
+        model = UserRequest
+        fields = ['username', 'email']
