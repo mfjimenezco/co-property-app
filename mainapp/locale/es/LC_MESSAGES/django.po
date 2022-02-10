@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 15:49-0500\n"
+"POT-Creation-Date: 2022-02-10 15:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Manuel Felipe Jiménez Cortés <mfjimenezco@gmail.com>\n"
 "Language: Español\n"
@@ -70,33 +70,102 @@ msgstr ""
 msgid "Please complete your profile before using the app"
 msgstr "Complete su perfil antes de usar la aplicación"
 
-#: .\accounts\models.py:22
+#: .\accounts\models.py:28
 msgid "username"
 msgstr "nombre de usuario"
 
-#: .\accounts\models.py:27
+#: .\accounts\models.py:33
 msgid "A user with that username already exists."
 msgstr ""
 
-#: .\accounts\models.py:31
+#: .\accounts\models.py:37
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: .\accounts\models.py:34
+#: .\accounts\models.py:40
 msgid "accepted status"
 msgstr "estado de aceptado"
 
-#: .\accounts\models.py:36
+#: .\accounts\models.py:42
 msgid "Designates whether the user request is accepted."
 msgstr "Designa si se acepta la solicitud del usuario."
 
-#: .\accounts\models.py:42
+#: .\accounts\models.py:48
 msgid "User Request"
 msgstr "Solicitud de usuario"
 
-#: .\accounts\models.py:43
+#: .\accounts\models.py:49
 msgid "User Requests"
 msgstr "Solicitudes de usuario"
+
+#: .\accounts\models.py:74 .\accounts\models.py:103
+#, python-format
+msgid "User was not created in %(appname)s."
+msgstr "El usuario no se creó en %(appname)s."
+
+#: .\accounts\models.py:78
+#, python-format
+msgid ""
+"Hi User Requester.\n"
+"\n"
+"Your user creation request for %(user)s was not approved on %(appname)s "
+"because the username already exists.\n"
+"\n"
+"Regards."
+msgstr ""
+"Hola Usuario Solicitante.\n"
+"\n"
+"Su solicitud de creación de usuario para %(user)s no fue aprobada en %(appname)s "
+"porque el nombre de usuario ya existe.\n"
+"\n"
+"Saludos."
+
+#: .\accounts\models.py:89
+#, python-format
+msgid "User created in %(appname)s."
+msgstr ""
+
+#: .\accounts\models.py:91
+#, python-format
+msgid ""
+"Hi dear New User.\n"
+"\n"
+"Your user %(user)s has been created in %(appname)s. Your temporary password "
+"is:\n"
+"\n"
+"\t%(password)s\n"
+"\n"
+"Please complete your profile and change your password as soon as you enter "
+"the application.\n"
+"\n"
+"Regards."
+msgstr ""
+"Hola querido nuevo usuario.\n"
+"\n"
+"Su usuario %(user)s ha sido creado en %(appname)s. Tu contraseña temporal "
+"es:\n"
+"\n"
+"\t%(password)s\n"
+"\n"
+"Complete su perfil y cambie su contraseña tan pronto como ingrese a la"
+"aplicación.\n"
+"\n"
+"Saludos."
+
+#: .\accounts\models.py:105
+#, python-format
+msgid ""
+"Hi User Requester.\n"
+"\n"
+"Your user creation request for %(user)s was not approved on %(appname)s.\n"
+"\n"
+"Regards."
+msgstr ""
+"Hola Usuario Solicitante.\n"
+"\n"
+"Su solicitud de creación de usuario para %(user)s no fue aprobada en %(appname)s.\n"
+"\n"
+"Saludos."
 
 #: .\accounts\views.py:41
 msgid "Invalid username and password"
@@ -278,7 +347,8 @@ msgstr "Perfil"
 #: .\templates\accounts\user_request.html:8
 msgid "Enter a username and your email to request a user"
 msgstr ""
-"Ingrese un nombre de usuario y su correo electrónico para solicitar un usuario"
+"Ingrese un nombre de usuario y su correo electrónico para solicitar un "
+"usuario"
 
 #: .\templates\accounts\user_request.html:52
 msgid "Request"
