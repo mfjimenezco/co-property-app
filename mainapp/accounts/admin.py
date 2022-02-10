@@ -4,6 +4,7 @@ Account admin register.
 
 # Django
 from django.contrib import admin
+from django.contrib import messages
 
 # Models
 from accounts.models import UserRequest
@@ -25,3 +26,9 @@ class UserRequestAdmin(admin.ModelAdmin):
         'is_accepted',
     )
     list_editable = ('is_accepted',)
+    def save_model(self, request, obj, form, change):
+        try:
+            super(UserRequestAdmin, self).save_model(request, obj, form, change)
+        except Exception as e:
+            # Add error message
+            messages.add_message(request, messages.ERROR, e)
