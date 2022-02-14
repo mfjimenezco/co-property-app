@@ -55,8 +55,6 @@ class UserRequest(BaseModel):
         if self.is_accepted is None:
             super().save(*args, **kwargs)
         else:
-            subject = ''
-            body = ''
             from_email = None
             to_email = self.email
             if self.is_accepted:
@@ -71,9 +69,9 @@ class UserRequest(BaseModel):
                     # Save user created
                     user.save()
                 except Exception as e:
-                    subject = _('User was not created in %(appname)s.') % {
-                            'appname': settings.APP_LONG_NAME}
                     if 'UNIQUE constraint failed' in str(e):
+                        subject = _('User was not created in %(appname)s.') % {
+                            'appname': settings.APP_LONG_NAME}
                         # Build non approval email
                         body = _('Hi User Requester.\n\nYour user creation '
                                  'request for %(user)s was not approved on '
@@ -82,8 +80,13 @@ class UserRequest(BaseModel):
                             'user': self.username,
                             'appname': settings.APP_LONG_NAME
                         }
-                    else:
-                        raise e
+                        # Send email
+                        email_message = EmailMultiAlternatives(
+                            subject, body, from_email, [to_email])
+                        email_message.send()
+                        # Delete user request
+                        self.delete()
+                    raise e
                 else:
                     # Build approval email with the temporary password
                     subject = _('User created in %(appname)s.') % {
@@ -98,6 +101,12 @@ class UserRequest(BaseModel):
                         'appname': settings.APP_LONG_NAME,
                         'password': pssw
                     }
+                    # Send email
+                    email_message = EmailMultiAlternatives(
+                        subject, body, from_email, [to_email])
+                    email_message.send()
+                    # Delete user request
+                    self.delete()
             else:
                 # Build non approval email
                 subject = _('User was not created in %(appname)s.') % {
@@ -108,9 +117,9 @@ class UserRequest(BaseModel):
                     'user': self.username,
                     'appname': settings.APP_LONG_NAME
                 }
-            # Send email
-            email_message = EmailMultiAlternatives(
-                subject, body, from_email, [to_email])
-            email_message.send()
-            # Delete user request
-            self.delete()
+                # Send email
+                email_message = EmailMultiAlternatives(
+                    subject, body, from_email, [to_email])
+                email_message.send()
+                # Delete user request
+                self.delete()
